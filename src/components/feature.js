@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchMessage } from '../actions/index';
+
 
 class Feature extends Component {
+  componentWillMount() {
+    this.props.fetchMessage()
+  }
   render() {
     return (
       <div>
@@ -9,4 +15,5 @@ class Feature extends Component {
     )
   }
 }
- export default Feature;
+
+ export default connect(null, { fetchMessage })(Feature);

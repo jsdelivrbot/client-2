@@ -20,6 +20,7 @@ const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 const token = localStorage.getItem('token');
+console.log(token)
 //if we have a token, consider the user to be signed in
 if (token) {
   //so we need to update the application state
