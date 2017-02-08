@@ -6,6 +6,7 @@ import * as actions from '../../actions/index';
 //marketing message for user
 class Signout extends Component {
   componentWillMount() {
+    //call action creator
     this.props.signoutUser();
   }
 

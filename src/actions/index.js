@@ -25,6 +25,21 @@ export function signinUser({ email, password }) {
       });
   }
 }
+
+export function signupUser({ email, password }) {
+  return function(dispatch) {
+    axios.post(`${API_URL}/signup`, { email, password })
+      .then(response => {
+        console.log(response);
+        dispatch({ type: AUTH_USER });
+        localStorage.getItem('token', response.data.token);
+        browserHistory.push('/feature');
+      })
+      .catch(() => {
+        dispatch(auth_error('already in use'))
+      });
+  }
+}
 export function auth_error(error) {
   return {
     type: AUTH_ERROR,
